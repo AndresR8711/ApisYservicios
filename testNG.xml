@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite de pruebas" thread-count="1" parallel="tests">
+
+    <test name="TestPost">
+        <classes>
+            <class name="CreateObject"> </class>
+        </classes>
+    </test>
+
+    <test name="Test Get Objects">
+        <classes>
+            <class name="GetObject"> </class>
+        </classes>
+    </test>
+
+    <test name="Test Update Objects">
+        <classes>
+            <class name="UpdateObject"> </class>
+        </classes>
+    </test>
+
+    <test name="Test update only Objects">
+        <classes>
+            <class name="UpdateOnlyObject"> </class>
+        </classes>
+    </test>
+
+    <test name="Test Get Objects again">
+        <classes>
+            <class name="GetObject"> </class>
+        </classes>
+    </test>
+
+</suite>

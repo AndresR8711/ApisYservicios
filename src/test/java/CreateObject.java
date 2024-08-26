@@ -1,0 +1,41 @@
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import java.io.File;
+import static io.restassured.RestAssured.given;
+
+
+public class CreateObject {
+
+    @BeforeMethod
+    public void setup() {
+        RestAssured.useRelaxedHTTPSValidation("SSL");
+    }
+
+    @Test//se crea anotacion tipo test para poder ejecutar la clase
+    public void CreateObject() {
+
+        File postBody =new File("src\\main\\resources\\postBody.json");
+
+        RequestSpecification request = given()
+                .baseUri("https://api.restful-api.dev")
+                .basePath("/objects")
+                .header("Content-Type", "application/json")
+                .body(postBody);
+
+        Response response = request
+                .when()
+                .post();
+        //.get("4");
+
+        response.prettyPrint(); //mostrar la API en pantalla
+        int statusCode = response.getStatusCode();
+     Assert.assertEquals(response.getStatusCode(), 200);
+
+
+    }
+
+}
